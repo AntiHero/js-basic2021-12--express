@@ -4,10 +4,22 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="style.css" />
     <title>Document</title>
   </head>
   <body>
     <h1>Hello, Otus!!!</h1>
+    <script>
+      fetch('/api/books')
+        .then((response) => {
+          if (response.ok) {
+            return response.json();
+          }
+
+          return Promise.reject('Bad request');
+        })
+        .then(console.log)
+        .catch((e) => console.log(e));
+    </script>
   </body>
 </html>
